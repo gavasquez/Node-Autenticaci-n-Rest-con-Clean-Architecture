@@ -16,6 +16,10 @@ export class Server {
   }
 
   async start() {
+    // Middelwares
+    // Serializar la data
+    this.app.use(express.json()); // row
+    this.app.use(express.urlencoded({extended: true})); // x-www-from-urlencoded
     // Usar las rutas definidas
     this.app.use( this.routes );
     // Escuchar el puerto
